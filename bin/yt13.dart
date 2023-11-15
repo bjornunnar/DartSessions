@@ -42,5 +42,13 @@ void main() {
 }
 
 bool is_valid_matrix(List<List<int>> matrix) {
-
+  List checkNumber = [];
+  for (List element in matrix) {
+    checkNumber.add(element.length);
+  }
+  if (checkNumber.toSet().length > 1) {
+    return false;
+  } else {
+    return true;
+  }
 }

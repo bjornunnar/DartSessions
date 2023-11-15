@@ -36,9 +36,16 @@
 
  */
 
-String fmt(int number){
+String fmt(int number) {
   return number.toString().padLeft(2, '0');
 }
 
-void main(){
+void main() {
+  for (int hour = 0; hour < 24; hour++) {
+    for (int minute = 0; minute < 60; minute++) {
+      for (int second = 0; second < 60; second++) {
+        print("${fmt(hour)}:${fmt(minute)}:${fmt(second)}");
+      }
+    }
+  }
 }

@@ -26,15 +26,16 @@
 
  */
 
-
 import 'dart:io';
 
 void main() {
-
-
-  for(int outer=1; outer <= 5; outer++){
-    print(outer);
+  for (int outer = 1; outer <= 5; outer++) {
+    List numbers = [];
+    for (int inner = 1; inner <= outer; inner++) {
+      numbers.add(outer);
+      if (numbers.length == outer) {
+        print(numbers.join());
+      }
+    }
   }
-
-
 }

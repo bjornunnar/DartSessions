@@ -17,12 +17,34 @@
    HAPPY NEW YEAR!!!!
  */
 
-String fmt(int number){
+String fmt(int number) {
   return number.toString().padLeft(2, '0');
 }
 
+List<String> secondWords = [
+  "HAPPY NEW YEAR !!!!",
+  "ONE !",
+  "TWO !",
+  "THREE !",
+  "FOUR !",
+  "FIVE !",
+  "SIX !",
+  "SEVEN !",
+  "EIGHT !",
+  "NINE !",
+  "TEN !",
+];
 
-void main(){
-
-
+void main() {
+  for (int hour = 23; hour >= 0; hour--) {
+    for (int minute = 58; minute >= 0; minute--) {
+      for (int second = 59; second >= 0; second--) {
+        if (minute == 0 && second < 11) {
+          print(secondWords[second]);
+        } else {
+          print("${fmt(hour)}:${fmt(minute)}:${fmt(second)}");
+        }
+      }
+    }
+  }
 }

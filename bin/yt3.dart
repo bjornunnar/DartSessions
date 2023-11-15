@@ -20,13 +20,24 @@
 
  */
 
-void main(){
-
+void main() {
   List<List<int>> myList = [
     [2, 4, 6, 8, 10],
     [3, 6, 9, 12, 15],
     [4, 8, 12, 16, 20]
   ];
 
+  List middleList = myList[(myList.length / 2).floor()];
+  print(middleList);
 
+  int middleNumber = middleList[(middleList.length / 2).floor()];
+  print(middleNumber);
+
+  print("Final:");
+  int bonusChallengeSimple = myList[1][1];
+
+  // list soup!
+  int bonusChallenge = (myList[(myList.length / 2).floor()])[
+      ((myList[(myList.length / 2).floor()]).length / 2).floor()];
+  print(bonusChallenge);
 }

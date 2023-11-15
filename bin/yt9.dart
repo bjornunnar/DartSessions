@@ -14,13 +14,50 @@
 
  */
 
-
-void main(){
+void main() {
   List<List<int>> myList = [
-    [ 2, 4, 6, 8 ],
-    [ 1, 3, 5, 7 ],
-    [ 8, 6, 4, 2 ],
-    [ 7, 5, 3, 1 ]
+    [2, 4, 6, 8],
+    [1, 3, 5, 7],
+    [8, 6, 4, 2],
+    [7, 5, 3, 1]
   ];
 
+  List<int> newList = [];
+
+  int highNumber = 3;
+
+  // FANCY FUNCTION
+  getNumbers(baseList: myList, emptyList: newList, highNumber: highNumber);
+
+  // DEDICATED FOR LOOPS
+  // for (List<int> innerList in myList) {
+  //   for (int number in innerList) {
+  //     if (number > 5) {
+  //       print(number);
+  //     }
+  //   }
+  // }
+
+  // for (List<int> innerList in myList) {
+  //   for (int number in innerList) {
+  //     if (number > 5) {
+  //       newList.add(number);
+  //     }
+  //   }
+  // }
+  // print(newList);
+}
+
+void getNumbers(
+    {required List baseList,
+    required List emptyList,
+    required int highNumber}) {
+  for (List<int> innerList in baseList) {
+    for (int number in innerList) {
+      if (number > highNumber) {
+        emptyList.add(number);
+      }
+    }
+  }
+  print(emptyList);
 }
