@@ -33,29 +33,32 @@ void main() {
   print(matrix_multiply(matrix1, matrix2));
   // Should return [[22,28],[49,64]]
 
-  // print(matrix_multiply(matrix2, [[]]));
-  // // Should Return null
+  print(matrix_multiply(matrix2, [[]]));
+  // Should Return null
 
-  // print(matrix_multiply(matrix2, matrix2));
-  // // Should return null
+  print(matrix_multiply(matrix2, matrix2));
+  // Should return null
 }
 
 // m is the first matrix and n is the second
 
-// TODO -- FIGURE OUT WHAT THIS IS
-
-List<List<int>> matrix_multiply(List<List<int>> m, List<List<int>> n) {
-  List<List<int>> newMatrix = [];
+List<List<int>>? matrix_multiply(List<List<int>> m, List<List<int>> n) {
+  if (!(is_valid_matrix(m) && is_valid_matrix(n) && checkMatrices(m, n))){
+    return null;
+  }
+  List<List<int>> newMatrix = []; 
   for (List row in m) {
-    for (List column in n) {
-      for (int i = 0; i < row.length - 1; i++) {
-        for (int a = 0; a < n.length - 1; a++) {
-          for (int b = 0; b < n[0].length - 1; b++) {
-            newMatrix.add(row[i] * column[a][b]);
-          }
+    List<int> newList = [];
+    for (int a = 0; a < n[0].length; a++){
+      int value = 0;
+      for (int i = 0; i < row.length; i++){
+        value += (row[i]*n[i][a]) as int;
+        if (i == n.length -1){
+          newList.add(value);
         }
       }
     }
+    newMatrix.add(newList);
   }
   return newMatrix;
 }
@@ -72,8 +75,10 @@ bool is_valid_matrix(List<List<int>> matrix) {
   }
 }
 
-void checkMatrices(List<List<int>> m, List<List<int>> n) {
-  if (m.length != m[0].length) {
-    return null;
+bool checkMatrices(List<List<int>> m, List<List<int>> n) {
+  if (m.length != n[0].length) {
+    return false;
+  } else {
+    return true;
   }
 }
